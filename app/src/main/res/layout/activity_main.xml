@@ -9,27 +9,56 @@
     android:stretchColumns="1"
 
     >
-<TableRow>
-    <TextView android:text="ID"/>
-    <EditText android:hint="id를 입력하세요" android:layout_span="3"
-        android:imeOptions="actionGo" android:id="@+id/EditText" android:maxLines="1"
+    <TableRow>
+    <TextView android:text="이름" android:id="@+id/TVname"/>
+    <EditText android:hint="이름을 입력하세요" android:layout_span="3"
+        android:imeOptions="actionGo" android:id="@+id/ETname" android:maxLines="1"
         android:inputType="text"
         />
-</TableRow>
+    </TableRow>
 
     <TableRow>
-        <TextView android:text="Password"/>
+        <TextView android:text="비밀번호"   android:id="@+id/TVpass"/>
         <EditText android:hint="Password를 입력하세요."
             android:layout_span="3" android:imeOptions="actionNext"
-            android:id="@+id/ed1" android:maxLines="1"
+            android:id="@+id/ETpass" android:maxLines="1"
             android:inputType="textPassword"
             />
 
     </TableRow>
-<TableRow>
 
-    <Button android:text="확인" android:layout_column="2"></Button>
-    <Button android:text="취소" ></Button>
+    <TableRow>
 
-</TableRow>
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:id="@+id/addButton"
+            android:layout_column="2"
+            android:text="추가"></Button>
+
+
+    </TableRow>
+
+    <TableRow>
+
+        <ListView
+            android:id="@+id/ListView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_span="4"
+            android:choiceMode="singleChoice"
+            android:divider="#0000ff"
+            android:dividerHeight="3dp"
+            android:scrollbarAlwaysDrawVerticalTrack="true"
+            android:fastScrollAlwaysVisible="true"
+            android:scrollbarSize="15dp">
+
+        </ListView>
+
+    </TableRow>
+
 </TableLayout>

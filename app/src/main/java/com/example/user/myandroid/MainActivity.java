@@ -6,14 +6,18 @@ import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.inputmethod.EditorInfo;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Button;
 import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import org.w3c.dom.Text;
+
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -24,9 +28,30 @@ public class MainActivity extends AppCompatActivity {
 
         LayoutInflater layoutInflater =getLayoutInflater();
         LinearLayout toastView=(LinearLayout)layoutInflater.inflate(R.layout.mytoast, null);
-        EditText eidt=(EditText)findViewById(R.id.EditText);
-        EditText eidt2=(EditText)findViewById(R.id.ed1);
 
+        Button btn=(Button)findViewById(R.id.addButton);
+
+        final ListView lv=(ListView)findViewById(R.id.ListView);
+
+        final ArrayList<String> AL=new ArrayList<String>();
+
+        final ArrayAdapter<String> adapters=new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,AL);
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                EditText et1=(EditText)findViewById(R.id.ETname);
+                EditText et2=(EditText)findViewById(R.id.ETpass);
+                final CharSequence cs1=et1.getText();
+                final CharSequence cs2=et2.getText();
+                et1.setText(null);
+                et2.setText(null);
+                AL.add("이름 : "+cs1+" 비밀번호 : "+cs2);
+                lv.setAdapter(adapters);
+            }
+        });
+
+
+        /*
         TextView.OnEditorActionListener a=new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
@@ -37,13 +62,13 @@ public class MainActivity extends AppCompatActivity {
                 else if(actionId==EditorInfo.IME_ACTION_NEXT) {
                     Toast.makeText(MainActivity.this,"두번째",Toast.LENGTH_SHORT).show();
                     return true;
+                    }
+                    return false;
                 }
-                return false;
-            }
-        };
-        eidt.setOnEditorActionListener(a);
-        eidt2.setOnEditorActionListener(a);
-
+            };
+            eidt.setOnEditorActionListener(a);
+            eidt2.setOnEditorActionListener(a);
+*/
 
 
 
