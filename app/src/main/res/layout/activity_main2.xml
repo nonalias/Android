@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="이름:"
+        android:textSize="23sp"
+        android:paddingTop="10dp"
+        android:paddingRight="15dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="20dp"
+        android:id="@+id/tvname"
+        />
+
+    <view
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_alignRight="@id/tvname"
+        android:layout_toRightOf="@id/tvname" android:id="@+id/view1"></view>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="내용을 입력해 주세요"
+        android:textSize="23sp"
+        android:inputType="text"
+        android:layout_alignTop="@+id/tvname"
+        android:layout_alignLeft="@id/view1"
+        android:layout_alignParentRight="true"
+        android:id="@+id/etname"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="비밀번호:"
+        android:textSize="23sp"
+        android:paddingTop="13dp"
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/tvname"
+        android:layout_alignLeft="@id/tvname"
+        />
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/etname"
+        android:hint="내용을 입력해 주세요"
+        android:textSize="23sp"
+        android:inputType="textPassword"
+        android:layout_marginLeft="30dp"
+        android:layout_alignLeft="@id/etname"
+        android:layout_alignParentRight="true"
+        android:id="@+id/etpassword"
+        />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/etpassword"
+        android:textSize="23dp"
+        android:id="@+id/btnadd"
+        android:text="입력"
+        android:layout_alignParentRight="true"
+        />
+    <ListView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/listview"
+        android:layout_below="@id/btnadd"
+        android:layout_alignParentBottom="true"
+        >
+
+    </ListView>
+
+</RelativeLayout>

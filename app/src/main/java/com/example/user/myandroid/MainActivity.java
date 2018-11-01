@@ -1,5 +1,6 @@
 package com.example.user.myandroid;
 
+import android.graphics.BitmapFactory;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Gravity;
@@ -18,18 +19,91 @@ import android.widget.Toast;
 import org.w3c.dom.Text;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 
 public class MainActivity extends AppCompatActivity {
-
+    EditText etname;
+    EditText etpassword;
+    Button btnadd;
+    ListView listView;
+    ArrayList<String> arraylist;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.listview2);
 
-        LayoutInflater layoutInflater =getLayoutInflater();
-        LinearLayout toastView=(LinearLayout)layoutInflater.inflate(R.layout.mytoast, null);
 
-        Button btn=(Button)findViewById(R.id.addButton);
+
+        etname=findViewById(R.id.etname);
+        etpassword=findViewById(R.id.etpassword);
+        btnadd=findViewById(R.id.btnadd);
+        listView=findViewById(R.id.listview);
+
+       final  ListAdapter adapter=new ListAdapter(this);
+        listView.setAdapter(adapter);
+
+        btnadd.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v){
+                String check=etname.getText().toString();
+                    if(check.equals(""))
+                        Toast.makeText(MainActivity.this,"이름을 입력해 주세요", Toast.LENGTH_SHORT).show();
+                    else{
+                        String result="이름:"+check+" 비밀번호:" +etpassword.getText().toString();
+                        adapter.add(BitmapFactory.decodeResource(getResources(),R.drawable.ic_launcher_background),check,etpassword.getText().toString(),Calendar.getInstance().getTime().toString());
+                        adapter.notifyDataSetChanged();
+                }
+            }
+        });
+
+
+/*
+        LayoutInflater layoutInflater = getLayoutInflater();
+        LinearLayout toastView = (LinearLayout) layoutInflater.inflate(R.layout.mytoast, null);
+
+        Button a1=(Button)findViewById(R.id.btnplus);
+        Button a2=(Button)findViewById(R.id.btnminus);
+        Button a3=(Button)findViewById(R.id.btnmul);
+        Button a4=(Button)findViewById(R.id.btnmod);
+        final Button.OnClickListener react = new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                EditText op1=(EditText)findViewById(R.id.op1);
+                EditText op2=(EditText)findViewById(R.id.op2);
+                int result=0;
+
+                switch (v.getId()){
+                    case (R.id.btnplus):
+                            result = Integer.parseInt(op1.getText().toString()) + Integer.parseInt(op2.getText().toString());
+                    break;
+
+                    case (R.id.btnminus):
+                        result = Integer.parseInt(op1.getText().toString()) - Integer.parseInt(op2.getText().toString());
+                        break;
+                    case (R.id.btnmul):
+                        result = Integer.parseInt(op1.getText().toString()) * Integer.parseInt(op2.getText().toString());
+                        break;
+                    case(R.id.btnmod):
+                        result = Integer.parseInt(op1.getText().toString()) % Integer.parseInt(op2.getText().toString());
+                        break;
+
+                }
+
+
+
+                TextView res=(TextView)findViewById(R.id.result);
+                res.setText(Integer.toString(result));
+
+        };
+
+
+    };
+        a1.setOnClickListener(react);
+        a2.setOnClickListener(react);
+        a3.setOnClickListener(react);
+        a4.setOnClickListener(react);
+*/
+/* Button btn=(Button)findViewById(R.id.addButton);
 
         final ListView lv=(ListView)findViewById(R.id.ListView);
 
@@ -46,10 +120,7 @@ public class MainActivity extends AppCompatActivity {
                 et1.setText(null);
                 et2.setText(null);
                 AL.add("이름 : "+cs1+" 비밀번호 : "+cs2);
-                lv.setAdapter(adapters);
-            }
-        });
-
+                lv.setAdapter(adapters);*/
 
         /*
         TextView.OnEditorActionListener a=new TextView.OnEditorActionListener() {

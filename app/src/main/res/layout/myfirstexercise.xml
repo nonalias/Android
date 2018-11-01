@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <EditText
+        android:id="@+id/op1"
+        android:layout_width="189dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="46dp"
+        android:hint="피연산자 1"
+        android:inputType="text"
+        android:maxLines="1" />
+
+    <EditText
+        android:id="@+id/op2"
+        android:layout_width="190dp"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/op1"
+        android:layout_marginLeft="5dp"
+        android:layout_toRightOf="@id/op1"
+        android:hint="피연산자2"
+
+
+        android:inputType="text"
+        android:maxLines="1" />
+
+    <Button
+        android:id="@+id/btnplus"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/op1"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="0dp"
+        android:text="+"
+        android:textSize="10pt" />
+
+    <Button
+        android:id="@+id/btnminus"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/op1"
+        android:layout_marginLeft="55dp"
+        android:layout_marginTop="-1dp"
+        android:layout_toRightOf="@id/btnplus"
+        android:text="-"
+        android:textSize="10pt" />
+
+    <Button
+        android:id="@+id/btnmul"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignTop="@+id/btnplus"
+        android:layout_marginLeft="45dp"
+        android:layout_marginTop="0dp"
+        android:layout_toRightOf="@id/btnminus"
+        android:text="x"
+        android:textSize="10pt" />
+
+    <Button
+        android:id="@+id/btnmod"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/op1"
+        android:layout_marginLeft="43dp"
+        android:layout_toRightOf="@id/btnmul"
+        android:text="%"
+        android:textSize="10pt" />
+
+    <TextView
+        android:id="@+id/result"
+        android:layout_width="match_parent"
+        android:layout_height="72dp"
+        android:textAlignment="center"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="282dp"
+        android:background="@drawable/back"
+        android:textSize="20pt" />
+</RelativeLayout>
+
+
