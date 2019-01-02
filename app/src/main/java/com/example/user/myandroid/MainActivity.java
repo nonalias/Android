@@ -3,37 +3,54 @@ package com.example.user.myandroid;
 import android.graphics.BitmapFactory;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.Gravity;
-import android.view.KeyEvent;
-import android.view.LayoutInflater;
-import android.view.inputmethod.EditorInfo;
-import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Button;
 import android.view.View;
-import android.widget.LinearLayout;
 import android.widget.ListView;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import org.w3c.dom.Text;
-
-import java.util.ArrayList;
-import java.util.Calendar;
-
 public class MainActivity extends AppCompatActivity {
-    EditText etname;
+    /*EditText etname;
     EditText etpassword;
     Button btnadd;
     ListView listView;
-    ArrayList<String> arraylist;
+    ArrayList<String> arraylist;*/
+    EditText etindex;
+    Button imgbtn;
+    Button addbtn;
+    ListView listview;
+    boolean isclicked;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.listview2);
-
-
-
+        setContentView(R.layout.exercise3_activity);
+        etindex=findViewById(R.id.etindex);
+        imgbtn=findViewById(R.id.imgbtn);
+        addbtn=findViewById(R.id.addbtn);
+        listview=findViewById(R.id.ex3_lv);
+        imgbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                isclicked=true;
+            }
+        });
+        final ListAdapter2 adapter=new ListAdapter2(this);
+        listview.setAdapter(adapter);
+        addbtn.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v){
+                String check=etindex.getText().toString();
+                if(check.equals(""))
+                    Toast.makeText(MainActivity.this,"이름을 입력해 주세요", Toast.LENGTH_SHORT).show();
+                else{
+                    if(isclicked==true)
+                    adapter.add(BitmapFactory.decodeResource(getResources(),R.drawable.capture),check);
+                    else
+                        adapter.add(check);
+                    adapter.notifyDataSetChanged();
+                }
+            }
+        });
+/*
         etname=findViewById(R.id.etname);
         etpassword=findViewById(R.id.etpassword);
         btnadd=findViewById(R.id.btnadd);
@@ -49,13 +66,13 @@ public class MainActivity extends AppCompatActivity {
                         Toast.makeText(MainActivity.this,"이름을 입력해 주세요", Toast.LENGTH_SHORT).show();
                     else{
                         String result="이름:"+check+" 비밀번호:" +etpassword.getText().toString();
-                        adapter.add(BitmapFactory.decodeResource(getResources(),R.drawable.ic_launcher_background),check,etpassword.getText().toString(),Calendar.getInstance().getTime().toString());
+                        adapter.add(BitmapFactory.decodeResource(getResources(),R.drawable.capture),check,etpassword.getText().toString(),Calendar.getInstance().getTime().toString());
                         adapter.notifyDataSetChanged();
                 }
             }
         });
 
-
+*/ //리스트뷰에 listitem 객체 단위로 넣기
 /*
         LayoutInflater layoutInflater = getLayoutInflater();
         LinearLayout toastView = (LinearLayout) layoutInflater.inflate(R.layout.mytoast, null);

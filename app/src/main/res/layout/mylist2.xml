@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+    <RelativeLayout android:layout_height="match_parent" android:layout_width="match_parent" xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <ImageView android:layout_height="40dp"
+        android:layout_width="40dp"
+        android:layout_margin="8dp"
+        android:src="@mipmap/ic_launcher"
+        android:id="@+id/mylistimage"
+        android:layout_marginLeft="8dp" android:layout_alignParentLeft="true"/>
+
+    <TextView
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:id="@+id/mylisttv"
+        android:text="title"
+        android:textSize="14pt"
+        android:layout_toRightOf="@id/mylistimage"
+        android:layout_alignTop="@id/mylistimage"/>
+
+
+</RelativeLayout>

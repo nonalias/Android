@@ -1,6 +1,7 @@
 package com.example.user.myandroid;
 
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 
 public class listitem {
     private Bitmap image;
@@ -39,7 +40,6 @@ public class listitem {
     public void setRelease(String release) {
         this.release = release;
     }
-
 
 
 

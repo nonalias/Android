@@ -12,11 +12,11 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-public class ListAdapter extends ArrayAdapter<listitem> {
-    ArrayList<listitem> arrayList=new ArrayList<>();
+public class ListAdapter2 extends ArrayAdapter<listitem> {
+    ArrayList<ListItem2> arrayList=new ArrayList<>();
 
     private final Activity context;
-    public ListAdapter(Activity context) {
+    public ListAdapter2(Activity context) {
         super(context, R.layout.mylist2);
         this.context=context;
     }
@@ -29,14 +29,14 @@ public class ListAdapter extends ArrayAdapter<listitem> {
     public long getItemId(int position){
         return 0;
     }
-    public void add(String t1,String t2,String t3)
+    public void add(String t1)
     {
-        listitem listItem=new listitem(BitmapFactory.decodeFile("/res/drawable/kakaodefalut.jpg"),t1,t2,t3);
+        ListItem2 listItem=new ListItem2(BitmapFactory.decodeFile("/res/drawable/kakaodefalut.jpg"),t1);
         arrayList.add(listItem);
     }
-    public void add(Bitmap image,String t1,String t2,String t3)
+    public void add(Bitmap image,String t1)
     {
-        listitem listItem=new listitem(image,t1,t2,t3);
+        ListItem2 listItem=new ListItem2(image,t1);
         arrayList.add(listItem);
     }
 
@@ -49,18 +49,16 @@ public class ListAdapter extends ArrayAdapter<listitem> {
             convertView = context.getLayoutInflater().inflate(R.layout.mylist2, parent, false);  //빈 convertView에 현재 Layout에 대한 정보를 inflate하여 저장
 
             holder = new ViewHolder();
-            holder.icon = (ImageView) convertView.findViewById(R.id.list_image);
-            holder.text = (TextView) convertView.findViewById(R.id.tv1);
-            holder.timestamp = (TextView) convertView.findViewById(R.id.release);
-            holder.byname = (TextView) convertView.findViewById(R.id.tv2);
+            holder.icon = (ImageView) convertView.findViewById(R.id.mylistimage);
+            holder.text = (TextView) convertView.findViewById(R.id.mylisttv);
+
             convertView.setTag(holder);
         }else
         {
             holder = (ViewHolder) convertView.getTag();
             holder.icon.setImageBitmap(arrayList.get(position).getImage());
             holder.text.setText(arrayList.get(position).getTitle());
-            holder.byname.setText(arrayList.get(position).getByname());
-            holder.timestamp.setText(arrayList.get(position).getRelease());
+
         }
         return convertView;
     }

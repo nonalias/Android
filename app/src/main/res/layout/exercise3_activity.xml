@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+
+    >
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="제목 : "
+        android:id="@+id/tvindex"
+        android:textSize="12pt"
+
+        android:paddingTop="10dp"
+        />
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/tvindex"
+        android:textSize="12pt"
+        android:id="@+id/etindex"
+        android:hint="내용을 입력해 주세요."
+        android:layout_alignTop="@id/tvindex"
+        android:layout_alignParentRight="true"
+        android:maxLines="1"
+
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="12pt"
+        android:text="이미지 추가하기->"
+        android:paddingTop="9dp"
+        android:paddingRight="9dp"
+        android:layout_alignTop="@id/imgbtn"
+        android:layout_toLeftOf="@id/imgbtn"
+        />
+    <Button
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:text="+"
+        android:textSize="12pt"
+        android:id="@+id/imgbtn"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/tvindex"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        />
+<Button
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="추가"
+    android:layout_below="@id/imgbtn"
+    android:id="@+id/addbtn"
+    android:layout_marginTop="10dp"
+    android:layout_alignRight="@id/imgbtn"
+    />
+    <ListView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_below="@id/imgbtn"
+        android:id="@+id/ex3_lv"
+        >
+
+    </ListView>
+</RelativeLayout>
